@@ -1,127 +1,43 @@
-import React from "react";
+import React, { useState } from 'react';
+import "./Style.css";
 
-import {
-Button,
-TextField,
-Grid,
-Paper,
-AppBar,
-Typography,
-Toolbar,
-Link,
-} from "@mui/material";
-//import {BRAND_NAME} from '../constants'
-import './Login.css';
+const LoginForm = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-class Login extends React.Component {
-constructor(props) {
-super(props);
-this.state = { username: "", password:"", authflag:1 };
-this.handleChange = this.handleChange.bind(this);
-this.handleSubmit = this.handleSubmit.bind(this);
-}
-handleChange(event) {
-this.setState({ username: event.state.username, password: event.state.password });
-}
-handleSubmit(event) {
-event.preventDefault();
-if (this.state.username === 'komal@gmail.com' && this.state.password === 'komal') {
-this.props.history.push("./home");
-} else {
-alert('Incorrect Credntials!');
-}
-}
-render() {
-return (
-<div>
-<AppBar position="static" alignitems="center" color="primary">
-<Toolbar>
-<Grid container justify="center" wrap="wrap">
-<Grid item>
-<Typography variant="h6">LOGIN FORM</Typography>
-</Grid>
-</Grid>
-</Toolbar>
-</AppBar>
-<Grid container spacing={0} justify="center" direction="row">
-<Grid item>
-<Grid
-container
-direction="column"
-justify="center"
-spacing={2}
-className="login-form"
->
-<Paper
-variant="elevation"
-elevation={2}
-className="login-background"
->
-<Grid item>
-<Typography component="h1" variant="h5">
-Sign in
-</Typography>
-</Grid>
-<Grid item>
-<form onSubmit={this.handleSubmit}>
-<Grid container direction="column" spacing={2}>
-<Grid item>
-<TextField
-type="email"
-placeholder="Email"
-fullWidth
-name="username"
-variant="outlined"
-value={this.state.username}
-onChange={(event) =>
-this.setState({
-[event.target.name]: event.target.value,
-})
-}
-required
-autoFocus
-/>
-</Grid>
-<Grid item>
-<TextField
-type="password"
-placeholder="Password"
-fullWidth
-name="password"
-variant="outlined"
-value={this.state.password}
-onChange={(event) =>
-this.setState({
-[event.target.name]: event.target.value,
-})
-}
-required
-/>
-</Grid>
-<Grid item>
-<Button
-variant="contained"
-color="primary"
-type="submit"
-className="button-block"
->
-Submit
-</Button>
-</Grid>
-</Grid>
-</form>
-</Grid>
-<Grid item>
-<Link href="#" variant="body2">
-Forgot Password?
-</Link>
-</Grid>
-</Paper>
-</Grid>
-</Grid>
-</Grid>
-</div>
-);
-}
-}
-export default Login;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Implement your authentication logic here
+    console.log('Username:', username);
+    console.log('Password:', password);
+  };
+
+  return (
+    <div className="login-container">
+      <h2 className="login-title">Login Form</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Username:</label>
+          <input
+            type="text"
+            className="login-input"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            className="login-input"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit" className="login-button">Login</button>
+      </form>
+    </div>
+  );
+};
+
+export default LoginForm;
