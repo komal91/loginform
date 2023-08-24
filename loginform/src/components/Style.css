@@ -1,11 +1,12 @@
 /* LoginForm.css */
 .login-container {
+  
     width: 300px;
     margin: auto;
     padding: 60px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 5px rgba(55, 125, 223, 0.3);
   }
   
   .login-title {
@@ -17,7 +18,7 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #590fd1;
     border-radius: 3px;
   }
   
