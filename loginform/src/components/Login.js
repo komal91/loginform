@@ -7,8 +7,11 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Implement your authentication logic here
-    console.log('Username:', username);
+    if (username === 'komal@gmail.com' && password === 'komal') {
+        console.log("Welcome");
+    } else {
+    alert('Incorrect Credntials!');
+    }    console.log('Username:', username);
     console.log('Password:', password);
   };
 
