@@ -26,7 +26,7 @@ const isEmail = (email) =>
 
 //Authentication Function
 const authenticateUser = (email, password) => {
-  if (email === 'Dummy@gmail.com' && password === 'dummy123') {
+  if (email === 'Dummy123@gmail.com' && password === 'dummy123') {
     return { authenticated: true };
   } else {
     return { authenticated: false };
